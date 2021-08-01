@@ -94,6 +94,9 @@
                                 <span <?php if (isset($tparam['changeType']) && $tparam['changeType']): ?>style="color: red;" class="new" <?php endif;?>>
                                     <?php echo $tparam['dtype']; ?>
                                 </span>
+                                <span <?php if (isset($tparam['changeNullable']) && $tparam['changeNullable']): ?>style="color: red;" class="new" <?php endif;?>>
+                                    <?php echo $tparam['nullable'] ?? ''; ?>
+                                </span>
                             </li>
                         <?php } ?>
                     </ul>

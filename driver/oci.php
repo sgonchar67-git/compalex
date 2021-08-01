@@ -15,7 +15,8 @@ class Driver extends BaseDriver
         $query = "SELECT 
                     utc.TABLE_NAME AS ARRAY_KEY_1, 
                     utc.COLUMN_NAME AS ARRAY_KEY_2, 
-                    utc.DATA_TYPE || '(' || utc.DATA_LENGTH || '), NULL: ' || utc.NULLABLE AS dtype
+                    utc.DATA_TYPE || '(' || utc.DATA_LENGTH || '), NULL: ' || utc.NULLABLE AS dtype,
+                    utc.IS_NULLABLE
                 FROM 
                     USER_TAB_COLUMNS utc, 
                     USER_TABLES av 

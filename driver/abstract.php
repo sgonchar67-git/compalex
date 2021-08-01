@@ -87,6 +87,14 @@ abstract class BaseDriver
                         $sArray[$v][$f]['changeType'] = true;
                         break;
                     }
+                    case (isset($fArray[$v][$f]['IS_NULLABLE']) && isset($sArray[$v][$f]['IS_NULLABLE']) && ($fArray[$v][$f]['IS_NULLABLE'] != $sArray[$v][$f]['IS_NULLABLE'])) :
+                    {
+                        $fArray[$v][$f]['nullable'] = $fArray[$v][$f]['IS_NULLABLE'] === 'NO' ? 'not null' : 'null';
+                        $sArray[$v][$f]['nullable'] = $sArray[$v][$f]['IS_NULLABLE'] === 'NO' ? 'not null' : 'null';
+                        $fArray[$v][$f]['changeNullable'] = true;
+                        $sArray[$v][$f]['changeNullable'] = true;
+                        break;
+                    }
                 }
             }
             $out[$v] = array(
